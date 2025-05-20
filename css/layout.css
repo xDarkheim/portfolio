@@ -1,0 +1,118 @@
+/* 
+Copyright (c) 2024 Dmytro Hovenko
+All rights reserved.
+*/
+
+/* Container */
+.container {
+    flex: 1 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    /* Increase bottom margin to 48px to add space below footer */
+    margin: 32px auto 48px auto;
+    padding: 32px 18px 24px 18px;
+    /* Improved container background */
+    background: rgba(26, 29, 36, 0.95);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 0 32px rgba(0, 0, 0, 0.1);
+    overflow: visible;
+    position: relative;
+    /* Set a specific min-height to reduce layout shifts */
+    min-height: calc(100vh - 64px);
+    /* Add subtle texture */
+    background-image: 
+        linear-gradient(rgba(26, 29, 36, 0.97), rgba(26, 29, 36, 0.97)),
+        url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%233f4756' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 5v1H5V0zm1 5v1H5L6 5z'/%3E%3C/g%3E%3C/svg%3E");
+    transition: background 0.5s, box-shadow 0.5s;
+}
+
+body.light-mode .container {
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 32px rgba(0, 0, 0, 0.05);
+    /* Add subtle texture for light theme */
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.97)),
+        url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e2e8f0' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 5v1H5V0zm1 5v1H5L6 5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Universal styled block for main site sections */
+.styled-block {
+    margin-top: 36px;
+    margin-bottom: 36px;
+    border-radius: var(--border-radius, 16px);
+    box-shadow: var(--shadow);
+    background: var(--card-bg);
+    padding: 24px;
+    transition: background 0.5s, box-shadow 0.3s;
+    position: relative;
+    overflow: visible;
+}
+
+body.light-mode .styled-block {
+    background: var(--card-bg);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Remove double margin for first and last block */
+.container > .styled-block:first-child {
+    margin-top: 0;
+}
+.container > .styled-block:last-child {
+    margin-bottom: 0;
+}
+
+/* Section styles */
+section {
+    margin-bottom: 48px;
+    border-radius: var(--border-radius);
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    padding: 36px 24px;
+    transition: background 0.5s;
+}
+
+body.light-mode section {
+    background: var(--card-bg-light);
+}
+
+/* Fade-in for sections */
+section.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+    pointer-events: none;
+}
+section.visible {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+main {
+    flex: 1 0 auto; /* Make main content grow to fill available space */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .container { max-width: 98vw; }
+}
+
+@media (max-width: 900px) {
+    .container { padding: 10px; }
+    .styled-block {
+        margin-top: 18px;
+        margin-bottom: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header, .container, section { padding: 8px 2vw; }
+    .styled-block {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+}

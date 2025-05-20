@@ -1,0 +1,369 @@
+<!-- 
+Copyright (c) 2024 Dmytro Hovenko
+All rights reserved.
+-->
+<!DOCTYPE html>
+<html lang="en"> <!-- lang attribute will be updated by JS -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title and description will be set from JS, but data-i18n can be added as a fallback -->
+    <title data-i18n="siteTitleDefault">Dmytro Hovenko | Backend & Server-side Developer</title>
+    <meta name="description" data-i18n="siteDescriptionDefault" content="Portfolio of Dmytro Hovenko, Backend & Server-side Developer.">
+    <meta name="keywords" content="Dmytro Hovenko, Backend Developer, Server-side Developer, Game Server Developer, HTML, CSS, PHP, JavaScript, JQuery, Laravel, C, C++, MySQL, MSSQL, MuOnline, WoW, Lineage 2, MMORPG, Portfolio, Ukraine, Poland, Russia, English, Polish, Russian, Ukrainian, Software Engineer, Game Development, Server Development, Web Projects, Resume, Contact">
+    <meta name="author" content="Dmytro Hovenko">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph, Twitter Card, and other meta tags might also require translation if their content is static and not managed from JS -->
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CJF6Y3L9R"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-5CJF6Y3L9R');
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dmytro Hovenko",
+      "alternateName": "xDarkheim",
+      "jobTitle": "Backend & Server-side Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      },
+      "sameAs": [
+        "https://github.com/xDarkheim",
+        "https://www.linkedin.com/in/dmytro-hovenko-69316935a/",
+        "https://t.me/xdarkheim"
+      ],
+      "description": "Portfolio of Dmytro Hovenko, Backend & Server-side Developer specializing in server-side and game server development (MuOnline, WoW, La2), HTML, CSS, PHP, Laravel, JavaScript, JQuery, C, C++, MySQL, MSSQL, and more.",
+      "knowsAbout": [
+        "HTML", "CSS", "PHP", "Laravel", "JavaScript", "JQuery", "C", "C++", "MySQL", "MSSQL", "Game Server Development", "Backend Development", "Server-side Development"
+      ]
+    }
+    </script>
+</head>
+<body>
+    <button class="theme-toggle-btn" id="themeToggleBtn" data-i18n-title="themeToggleTitle" data-i18n-aria-label="themeToggleArialabel" title="Toggle light/dark mode" aria-label="Toggle light/dark mode">
+        <span id="themeIcon" data-i18n="themeIcon">&#9788;</span>
+    </button>
+    <div class="container">
+        <header class="header">
+            <div class="header-controls">
+                <div class="language-switcher" role="navigation" data-i18n-aria-label="langSelectionArialabel" aria-label="Language selection">
+                    <button class="lang-btn" data-lang="en" data-i18n-title="langBtnTitleEn" data-i18n-aria-label="langBtnArialabelEn" title="English" aria-label="Switch to English">
+                        <img src="images/flags/gb.png" data-i18n-alt="altGbFlag" alt="English Flag" width="24" height="18">
+                    </button>
+                    <button class="lang-btn" data-lang="ru" data-i18n-title="langBtnTitleRu" data-i18n-aria-label="langBtnArialabelRu" title="Русский" aria-label="Switch to Russian">
+                        <img src="images/flags/ru.png" data-i18n-alt="altRuFlag" alt="Russian Flag" width="24" height="18">
+                    </button>
+                    <button class="lang-btn" data-lang="pl" data-i18n-title="langBtnTitlePl" data-i18n-aria-label="langBtnArialabelPl" title="Polski" aria-label="Switch to Polish">
+                        <img src="images/flags/pl.png" data-i18n-alt="altPlFlag" alt="Polish Flag" width="24" height="18">
+                    </button>
+                    <button class="lang-btn" data-lang="uk" data-i18n-title="langBtnTitleUk" data-i18n-aria-label="langBtnArialabelUk" title="Українська" aria-label="Switch to Ukrainian">
+                        <img src="images/flags/ua.png" data-i18n-alt="altUaFlag" alt="Ukrainian Flag" width="24" height="18">
+                    </button>
+                </div>
+            </div>
+            <nav class="menu" role="navigation" data-i18n-aria-label="mainNavArialabel" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#about" data-i18n="about">About Me</a></li>
+                    <li><a href="#skills" data-i18n="skills">Skills</a></li>
+                    <li><a href="#projects" data-i18n="projects">Projects</a></li>
+                    <li><a href="#contact" data-i18n="contacts">Contacts</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section class="welcome-section styled-block" style="position:relative;overflow:hidden;">
+            <div class="decorative-orb orb-md orb-primary orb-top-left"></div>
+            <div class="decorative-orb orb-lg orb-secondary orb-bottom-right"></div>
+            <div class="welcome-bg"></div>
+            <div class="welcome-content" style="position:relative;z-index:1;">
+                <img src="images/logo.png" data-i18n-alt="altMyLogo" alt="My Logo" style="width:80px;height:80px;margin-bottom:18px;">
+                <h1 class="welcome-message">
+                    <span data-i18n="welcome">Hi, I'm Dmytro Hovenko</span><br>
+                    <span data-i18n="welcomeSub">Backend & Server-side Developer<br> Specializing in Game Servers and Server Solutions</span>
+                </h1>
+                <div class="welcome-icons" style="margin:24px 0;">
+                    <img src="images/icons/php-original.svg" data-i18n-alt="altPhpIcon" alt="PHP Icon" style="width:48px;margin:0 8px;">
+                    <img src="images/icons/javascript-original.svg" data-i18n-alt="altJsIcon" alt="JavaScript Icon" style="width:48px;margin:0 8px;">
+                    <img src="images/icons/cplusplus-original.svg" data-i18n-alt="altCppIcon" alt="C++ Icon" style="width:48px;margin:0 8px;">
+                </div>
+            </div>
+        </section>
+        <main>
+            <section id="about" class="about-section styled-block" itemscope itemtype="https://schema.org/Person">
+                <div class="decorative-orb orb-xl orb-primary orb-top-left"></div>
+                <div class="decorative-orb orb-lg orb-tertiary orb-bottom-right"></div>
+                <div class="about-content">
+                    <div style="flex:0 0 180px;display:flex;flex-direction:column;align-items:center;">
+                        <img src="images/photo.jpg" data-i18n-alt="altMyPhoto" alt="Dmytro Hovenko Photo" class="about-photo" style="margin-bottom:18px;" itemprop="image">
+                    </div>
+                    <div class="about-text">
+                        <h1 data-i18n="about" style="margin-top:0;" itemprop="name">About Me</h1>
+                        <p data-i18n="aboutText1">
+                            I'm <strong>Dmytro Hovenko</strong>, a <strong>Backend & Server-side Developer</strong> focused on building robust server solutions and backend systems. My main stack includes <strong>PHP</strong>, <strong>Laravel</strong>, <strong>C</strong>, <strong>C++</strong>, <strong>MySQL</strong>, and <strong>MSSQL</strong>. I am passionate about scalable server architectures and high-performance backend development.
+                        </p>
+                        <p data-i18n="aboutText2">
+                            My expertise covers backend APIs, server-side logic, database design, and game server development. I am committed to continuous learning and applying best practices in backend and server-side programming.
+                        </p>
+                        <p data-i18n="aboutText3">
+                            <strong>My main focus is server-side development, especially for game servers, clients, and related infrastructure.</strong> I have a strong interest in MMORPGs such as <strong>MuOnline</strong>, <strong>World of Warcraft (WoW)</strong>, and <strong>Lineage 2 (La2)</strong>, and aim to deliver reliable backend solutions for online gaming communities.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="skills" class="skills-container styled-block">
+                <div class="decorative-orb orb-lg orb-secondary orb-top-right"></div>
+                <div class="decorative-orb orb-md orb-primary orb-left-center"></div>
+                <div class="decorative-orb orb-xl orb-quaternary orb-bottom-left"></div>
+                
+                <h2 class="section-title" data-i18n="skills">Skills</h2>
+                <br>
+                <div class="skills-grid">
+                    <aside id="skills-programming" class="skills-box">
+                        <h3 data-i18n="skillsProgramming">Programming Languages & Backend</h3>
+                        <div class="skills-content">
+                            <ul class="skills-list">
+                                <li class="skill-item">
+                                    <div class="skill-header">
+                                        <span class="skill-name">HTML/CSS</span>
+                                        <span class="skill-percentage">45%</span>
+                                    </div>
+                                    <div class="skill-bar"><div class="skill-level-fill" style="--level: 45%"></div></div>
+                                    <p class="skill-description" data-i18n="skillHtmlCssDesc">Beginner. Frontend markup and styling.</p>
+                                </li>
+                                <li class="skill-item">
+                                    <div class="skill-header">
+                                        <span class="skill-name">PHP</span>
+                                        <span class="skill-percentage">30%</span>
+                                    </div>
+                                    <div class="skill-bar"><div class="skill-level-fill" style="--level: 30%"></div></div>
+                                    <p class="skill-description" data-i18n="skillPhpDesc">Beginner. Backend scripting, RESTful APIs, authentication, database integration.</p>
+                                </li>
+                                <li class="skill-item">
+                                    <div class="skill-header">
+                                        <span class="skill-name">JavaScript/JQuery</span>
+                                        <span class="skill-percentage">25%</span>
+                                    </div>
+                                    <div class="skill-bar"><div class="skill-level-fill" style="--level: 25%"></div></div>
+                                    <p class="skill-description" data-i18n="skillJsDesc">Beginner. Frontend interactivity and server-side with Node.js.</p>
+                                </li>
+                                <li class="skill-item">
+                                    <div class="skill-header">
+                                        <span class="skill-name">C</span>
+                                        <span class="skill-percentage">20%</span>
+                                    </div>
+                                    <div class="skill-bar"><div class="skill-level-fill" style="--level: 20%"></div></div>
+                                    <p class="skill-description" data-i18n="skillCDesc">Beginner. System-level programming, memory management.</p>
+                                </li>
+                                <li class="skill-item">
+                                    <div class="skill-header">
+                                        <span class="skill-name">C++</span>
+                                        <span class="skill-percentage">15%</span>
+                                    </div>
+                                    <div class="skill-bar"><div class="skill-level-fill" style="--level: 15%"></div></div>
+                                    <p class="skill-description" data-i18n="skillCppDesc">Beginner. OOP, STL, multi-threading.</p>
+                                </li>
+                            </ul>
+                        
+                            <div class="languages-container">
+                                <h4 data-i18n="skillsSpoken">Spoken Languages</h4>
+                                <ul class="languages-list">
+                                    <li class="lang-skill">
+                                        <img src="images/flags/pl.png" class="lang-flag" data-i18n-alt="altPlFlag" alt="Polish Flag">
+                                        <span class="lang-name" data-i18n="langPolish">Polish</span>
+                                        <span class="lang-level" data-i18n="langLvlFluent">Fluent</span>
+                                    </li>
+                                    <li class="lang-skill">
+                                        <img src="images/flags/ua.png" class="lang-flag" data-i18n-alt="altUaFlag" alt="Ukrainian Flag">
+                                        <span class="lang-name" data-i18n="langUkrainian">Ukrainian</span>
+                                        <span class="lang-level" data-i18n="langLvlNative">Native</span>
+                                    </li>
+                                    <li class="lang-skill">
+                                        <img src="images/flags/ru.png" class="lang-flag" data-i18n-alt="altRuFlag" alt="Russian Flag">
+                                        <span class="lang-name" data-i18n="langRussian">Russian</span>
+                                        <span class="lang-level" data-i18n="langLvlFluent">Fluent</span>
+                                    </li>
+                                    <li class="lang-skill">
+                                        <img src="images/flags/gb.png" class="lang-flag" data-i18n-alt="altGbFlag" alt="English Flag">
+                                        <span class="lang-name" data-i18n="langEnglish">English</span>
+                                        <span class="lang-level" data-i18n="langLvlUpperIntermediate">Upper-intermediate</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                    
+                    <aside id="skills-technologies" class="skills-box">
+                        <h3 data-i18n="skillsTechnologies">Technologies & Databases</h3>
+                        <div class="skills-content">
+                            <div class="skills-category">
+                                <h4 data-i18n="skillsFrameworks">Frameworks & Tools</h4>
+                                <ul class="skills-list">
+                                    <li class="skill-item">
+                                        <div class="skill-header">
+                                            <span class="skill-name">Laravel</span>
+                                            <span class="skill-percentage">25%</span>
+                                        </div>
+                                        <div class="skill-bar"><div class="skill-level-fill" style="--level: 25%"></div></div>
+                                        <p class="skill-description" data-i18n="skillLaravelDesc">Beginner. PHP framework for backend and APIs.</p>
+                                    </li>
+                                    <li class="skill-item">
+                                        <div class="skill-header">
+                                            <span class="skill-name">JQuery</span>
+                                            <span class="skill-percentage">20%</span>
+                                        </div>
+                                        <div class="skill-bar"><div class="skill-level-fill" style="--level: 20%"></div></div>
+                                        <p class="skill-description" data-i18n="skillJqueryDesc">Beginner. JavaScript library for DOM manipulation and UI enhancements.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="skills-category">
+                                <h4 data-i18n="skillsDatabases">Databases</h4>
+                                <ul class="skills-list">
+                                    <li class="skill-item">
+                                        <div class="skill-header">
+                                            <span class="skill-name">MySQL</span>
+                                            <span class="skill-percentage">35%</span>
+                                        </div>
+                                        <div class="skill-bar"><div class="skill-level-fill" style="--level: 35%"></div></div>
+                                        <p class="skill-description" data-i18n="skillMysqlDesc">Beginner. Relational design, queries, indexing.</p>
+                                    </li>
+                                    <li class="skill-item">
+                                        <div class="skill-header">
+                                            <span class="skill-name">MSSQL</span>
+                                            <span class="skill-percentage">30%</span>
+                                        </div>
+                                        <div class="skill-bar"><div class="skill-level-fill" style="--level: 30%"></div></div>
+                                        <p class="skill-description" data-i18n="skillMssqlDesc">Beginner. Stored procedures, triggers, tuning.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="skills-category">
+                                <h4 data-i18n="skillsGameServer">Game Server Focus</h4>
+                                <ul class="skills-list">
+                                    <li class="skill-item">
+                                        <div class="skill-header">
+                                            <span class="skill-name" data-i18n="skillMmorpDevName">MMORPG Server Development</span>
+                                            <span class="skill-percentage">40%</span>
+                                        </div>
+                                        <div class="skill-bar"><div class="skill-level-fill" style="--level: 40%"></div></div>
+                                        <p class="skill-description" data-i18n="skillMmorpDevDesc">Beginner. Server-side for MuOnline, WoW, La2.</p>
+                                    </li>
+                                    <li class="skill-item">
+                                        <div class="skill-header">
+                                            <span class="skill-name" data-i18n="skillServerConfigName">Server Configuration & Maintenance</span>
+                                            <span class="skill-percentage">35%</span>
+                                        </div>
+                                        <div class="skill-bar"><div class="skill-level-fill" style="--level: 35%"></div></div>
+                                        <p class="skill-description" data-i18n="skillServerConfigDesc">Beginner. Setup, security, optimization.</p>
+                                    </li>
+                                    <li class="skill-item">
+                                        <div class="skill-header">
+                                            <span class="skill-name" data-i18n="skillCustomScriptName">Customization & Scripting</span>
+                                            <span class="skill-percentage">40%</span>
+                                        </div>
+                                        <div class="skill-bar"><div class="skill-level-fill" style="--level: 40%"></div></div>
+                                        <p class="skill-description" data-i18n="skillCustomScriptDesc">Beginner. Server-side scripts, plugins, mods.</p>
+                                    </li>
+                                    <li class="skill-item">
+                                        <div class="skill-header">
+                                            <span class="skill-name" data-i18n="skillCommunitySupportName">Community & Support</span>
+                                            <span class="skill-percentage">45%</span>
+                                        </div>
+                                        <div class="skill-bar"><div class="skill-level-fill" style="--level: 45%"></div></div>
+                                        <p class="skill-description" data-i18n="skillCommunitySupportDesc">Beginner. Player needs, management, tech support.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+            <section id="projects" class="projects-section styled-block">
+                <div class="decorative-orb orb-md orb-tertiary orb-top-left"></div>
+                <div class="decorative-orb orb-lg orb-interaction orb-bottom-right"></div>
+                <h2 data-i18n="myProjects">My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card" data-project="darkheim">
+                        <div class="project-image" style="background:url('images/backgrounds/Dark.png') center/cover no-repeat;" data-i18n-alt="projectDarkheimAlt" alt="Darkheim Universe Project"></div>
+                        <h3 data-i18n="darkheimProject">Darkheim Universe</h3>
+                        <p data-i18n="darkheimDetails">A custom MMORPG server project for MuOnline with extensive server-side development. Features include custom game mechanics, database optimization, and security implementations.</p>
+                        <a href="https://mu.darkheim.net/" target="_blank" rel="noopener" class="project-link" data-i18n="visitProject">Visit Project</a>
+                    </div>
+                    <div class="project-card placeholder-card" data-project="2">
+                        <div class="project-image" style="background:url('images/backgrounds/bg1.jpg') center/cover no-repeat;" data-i18n-alt="projectComingSoonAlt" alt="Project Coming Soon"></div>
+                        <h3 data-i18n="projectSoon">Project Coming Soon</h3>
+                        <p data-i18n="projectSoonDetails">Details about this backend/server-side project will be added soon. Stay tuned!</p>
+                    </div>
+                    <div class="project-card placeholder-card" data-project="3">
+                        <div class="project-image" style="background:url('images/backgrounds/bg3.jpg') center/cover no-repeat;" data-i18n-alt="projectComingSoonAlt" alt="Project Coming Soon"></div>
+                        <h3 data-i18n="projectSoon">Project Coming Soon</h3>
+                        <p data-i18n="projectSoonDetails">Details about this backend/server-side project will be added soon. Stay tuned!</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="flex-container styled-block" style="position:relative;overflow:hidden;">
+                <div class="decorative-orb orb-xl orb-secondary orb-top-center"></div>
+                <div class="decorative-orb orb-lg orb-primary orb-bottom-left"></div>
+                <div class="decorative-orb orb-md orb-quaternary orb-right-center"></div>
+                <section class="info-box" itemscope itemtype="https://schema.org/ContactPoint">
+                    <div class="info-box-inner">
+                        <h3 data-i18n="contactMe">Contact Me</h3>
+                        <p data-i18n="contactMsg">Have a backend project in mind or want to discuss server-side solutions? Feel free to reach out!</p>
+                        <a href="mailto:dmytro.hovenko@gmail.com" class="info-button" data-i18n="emailMe">Email Me</a>
+                    </div>
+                </section>
+                <section class="info-box">
+                    <div class="info-box-inner">
+                        <h3 data-i18n="downloadResume">Download My Resume</h3>
+                        <p data-i18n="resumeText">Get a detailed overview of my backend, server-side, and game server experience.</p>
+                        <a href="path/to/your/resume.pdf" class="info-button" data-i18n="downloadResumeBtn" download="Dmytro_Hovenko_Resume.pdf">Download Resume</a>
+                    </div>
+                </section>
+            </section>
+        </main>
+        <footer class="footer styled-block">
+            <div class="decorative-orb orb-md orb-primary orb-top-left"></div>
+            <div class="decorative-orb orb-lg orb-tertiary orb-right-center"></div>
+            <ul class="footer-links">
+                <li><a href="#about" data-i18n="about">About Me</a></li>
+                <li><a href="#skills" data-i18n="skills">Skills</a></li>
+                <li><a href="#projects" data-i18n="projects">Projects</a></li>
+                <li><a href="#contact" data-i18n="contacts">Contacts</a></li>
+            </ul>
+            <div class="social-media">
+                <a href="https://github.com/xDarkheim" target="_blank" rel="noopener" data-i18n-title="altGithubIcon" title="GitHub" aria-label="Visit my GitHub profile">
+                    <img src="images/icons/github-original.svg" data-i18n-alt="altGithubIcon" alt="GitHub">
+                </a>
+                <a href="https://www.linkedin.com/in/dmytro-hovenko-69316935a/" target="_blank" rel="noopener" data-i18n-title="altLinkedinIcon" title="LinkedIn" aria-label="Visit my LinkedIn profile">
+                    <img src="images/icons/linkedin-original.svg" data-i18n-alt="altLinkedinIcon" alt="LinkedIn">
+                </a>
+                <a href="https://t.me/xdarkheim" target="_blank" rel="noopener" data-i18n-title="altTelegramIcon" title="Telegram" aria-label="Contact me via Telegram">
+                    <img src="images/icons/telegram.svg" data-i18n-alt="altTelegramIcon" alt="Telegram">
+                </a>
+            </div>
+            <br>
+            <p data-i18n="footerCopyright">&copy; 2025 Dmytro Hovenko. All rights reserved.</p>
+        </footer>
+        <div class="footer-spacer" style="height: 32px;"></div>
+    </div>
+    
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,836 @@
+/* 
+Copyright (c) 2024 Dmytro Hovenko
+All rights reserved.
+*/
+
+/* Welcome section */
+.welcome-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/backgrounds/bg1.jpg') no-repeat center center;
+    /* Fix path if needed - try alternative paths: */
+    /* background: url('../../images/backgrounds/welcome-bg.jpg') no-repeat center center; */
+    /* background: url('/images/backgrounds/welcome-bg.jpg') no-repeat center center; */
+    background-size: cover;
+    opacity: 0.18;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: var(--border-radius);
+}
+.welcome-message {
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--accent);
+    margin: 60px 0 48px;
+    text-shadow: 0 4px 18px rgba(76,175,80,0.10);
+    letter-spacing: 1.5px;
+    position: relative;
+    z-index: 1;
+}
+.welcome-message span {
+    font-size: 24px;
+    color: var(--text-light);
+    margin-top: 18px;
+    display: block;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.welcome-section.styled-block {
+    margin-top: 0;
+    margin-bottom: 48px;
+    box-shadow: 0 8px 32px rgba(56,163,165,0.10);
+    background: linear-gradient(135deg, var(--primary) 70%, var(--secondary) 100%);
+    padding: 24px;
+}
+
+/* About section */
+.about-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: linear-gradient(135deg, #263238 70%, #4caf50 100%);
+    border-radius: var(--border-radius, 16px);
+    box-shadow: 0 6px 32px 0 rgba(76,175,80,0.13), 0 2px 12px #0002;
+    padding: 36px 28px;
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+}
+body.light-mode .about-section {
+    background: linear-gradient(135deg, #fff 70%, #e4e7ef 100%);
+    box-shadow: 0 2px 12px rgba(76,175,80,0.08);
+}
+
+/* Remove old decorative elements */
+.about-section::before, 
+.about-section::after,
+.skills-container::before,
+.skills-container::after {
+    content: none;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 36px;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+}
+
+.about-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 8px 32px rgba(76,175,80,0.18), 0 2px 12px #0002;
+    border: 4px solid var(--accent, #4caf50);
+    background: var(--card-bg);
+    /* If there's a background image here, check the path: */
+    /* background: var(--card-bg) url('../images/photo.jpg'); */
+    background-size: cover;
+    margin-bottom: 18px;
+    transition: box-shadow 0.3s, border 0.3s;
+}
+.about-photo:hover {
+    box-shadow: 0 12px 40px rgba(76,175,80,0.28), 0 4px 16px #0003;
+    border-color: var(--accent-dark, #388e3c);
+}
+
+.about-content > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 180px;
+    max-width: 220px;
+    flex: 0 0 180px;
+}
+
+.about-content .about-text {
+    flex: 1;
+    font-size: 18px;
+    color: var(--text, #e4e7ef);
+    background: rgba(255,255,255,0.02);
+    border-radius: 12px;
+    padding: 18px 18px 18px 0;
+    box-shadow: none;
+    position: relative;
+    z-index: 1;
+}
+
+.about-text h1 {
+    font-size: 2.1em;
+    color: var(--accent, #4caf50);
+    margin-bottom: 18px;
+    margin-top: 0;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.about-text p {
+    color: var(--text-light, #bfc5d2);
+    font-size: 1.08em;
+    margin-bottom: 14px;
+    line-height: 1.7;
+    background: none;
+    border-left: 3px solid var(--accent, #4caf50);
+    padding-left: 14px;
+    border-radius: 0 8px 8px 0;
+    transition: background 0.3s;
+}
+.about-text p strong {
+    color: var(--accent, #4caf50);
+    font-weight: 600;
+}
+
+.about-section.styled-block {
+    padding: 36px 28px;
+    background: linear-gradient(135deg, var(--card-bg) 70%, var(--accent) 100%);
+    box-shadow: 0 6px 32px 0 rgba(56,163,165,0.13), 0 2px 12px #0002;
+}
+
+body.light-mode .about-section.styled-block {
+    background: linear-gradient(135deg, var(--card-bg) 70%, var(--accent-light) 100%);
+}
+
+/* Skills section - New Design */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-bottom: 48px;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--card-bg) 70%, var(--accent-secondary) 100%);
+    border-radius: var(--border-radius, 16px);
+    box-shadow: 0 6px 32px 0 rgba(56,163,165,0.10), 0 2px 12px #0002;
+    padding: 32px 24px;
+    position: relative;
+    overflow: visible;
+}
+
+.skills-box {
+    flex: 1 1 340px;
+    min-width: 300px;
+    max-width: 520px;
+    background: rgba(35,39,47,0.95);
+    padding: 28px 24px;
+    border-radius: var(--border-radius, 16px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 3px 12px rgba(0,0,0,0.08);
+    color: var(--text);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background 0.3s;
+    position: relative;
+    z-index: 1;
+    border: 2px solid transparent;
+    backdrop-filter: blur(5px);
+}
+
+body.light-mode .skills-box {
+    background: rgba(255,255,255,0.95);
+    color: var(--text);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05), 0 3px 12px rgba(0,0,0,0.04);
+}
+
+.skills-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.15), 0 6px 16px rgba(56,163,165,0.12);
+    border-color: var(--accent);
+}
+
+.skills-box h3 {
+    color: var(--accent);
+    font-size: 1.6em;
+    margin-bottom: 24px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.skills-box h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: width 0.3s ease, background 0.3s;
+}
+
+.skills-box:hover h3::after {
+    width: 100%;
+    background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+.skills-resume section {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.skills-resume section:hover {
+    transform: translateX(5px);
+    background-color: rgba(56,163,165,0.05);
+}
+
+.skills-box h4 {
+    color: var(--accent);
+    font-size: 1.2em;
+    margin: 0 0 20px 0;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.skills-box h4::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: width 0.3s ease, background 0.3s;
+}
+
+.skills-box h4:hover::after {
+    width: 100%;
+    background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+.skills-box ul {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.skills-box ul li {
+    margin-bottom: 22px;
+    font-size: 1em;
+    color: var(--text-light);
+    line-height: 1.6;
+    position: relative;
+    padding-left: 28px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-out;
+}
+
+.skills-box ul li:last-child {
+    margin-bottom: 5px;
+}
+
+.skills-box ul li::before {
+    content: "●";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+    font-size: 14px;
+    transition: transform 0.2s ease, color 0.3s;
+}
+
+.skills-box ul li:hover::before {
+    transform: scale(1.2);
+    color: var(--accent-light);
+}
+
+/* Improved Skill level bars */
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.skill-name {
+    font-weight: 600;
+    color: var(--text);
+    transition: color 0.3s;
+}
+
+.skill-percentage {
+    font-size: 0.85em;
+    font-weight: 600;
+    color: var(--accent);
+    background: rgba(56,163,165,0.1);
+    padding: 2px 8px;
+    border-radius: 12px;
+    transition: background 0.3s, color 0.3s;
+    position: relative;
+}
+
+/* Add a beginner indicator to skill percentages */
+.skill-percentage::before {
+    content: "Beginner"; /* Это значение по умолчанию, если JS не отработает или для базового отображения */
+    position: absolute;
+    font-size: 0.8em;
+    opacity: 0;
+    top: -18px;
+    right: 0;
+    color: var(--text-light);
+    transition: opacity 0.3s;
+}
+
+body.light-mode .skill-percentage::before {
+    color: var(--text-muted);
+}
+
+.skill-item:hover .skill-percentage::before {
+    opacity: 0.7;
+}
+
+.skill-item:hover .skill-percentage {
+    background: var(--accent);
+    color: white;
+}
+
+.skill-bar {
+    height: 8px;
+    background: rgba(56,163,165,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+body.light-mode .skill-bar {
+    background: rgba(14,116,144,0.1);
+}
+
+.skill-level-fill {
+    height: 100%;
+    width: 0; /* Start at 0 for animation */
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    border-radius: 4px;
+    position: relative;
+    animation: skillLoad 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.skill-level-fill::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 5px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 0 4px 4px 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.skill-item:hover .skill-level-fill::after {
+    opacity: 1;
+}
+
+@keyframes skillLoad {
+    from { width: 0; }
+    to { width: var(--level, 0%); }
+}
+
+.skill-item:hover .skill-level-fill {
+    transform: scaleY(1.2);
+    filter: brightness(1.1);
+}
+
+.skill-description {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    margin-top: 6px;
+    transition: color 0.3s;
+}
+
+.skill-item:hover .skill-description {
+    color: var(--text-light);
+}
+
+/* Improved language skills */
+.lang-skill {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 10px 15px !important;
+    background: rgba(56,163,165,0.05);
+    border-radius: 8px;
+    margin-bottom: 12px !important;
+    border-left: 3px solid var(--accent) !important;
+    transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s !important;
+}
+
+.lang-skill::before {
+    display: none !important;
+}
+
+.lang-skill:hover {
+    transform: translateX(5px);
+    background: rgba(56,163,165,0.1);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.lang-flag {
+    width: 24px !important;
+    height: 18px !important;
+    margin-right: 12px;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+    /* Make sure the image path is correct in HTML */
+}
+
+.lang-skill:hover .lang-flag {
+    transform: scale(1.1);
+}
+
+.lang-name {
+    font-weight: 600;
+    color: var(--text);
+    transition: color 0.3s;
+}
+
+.lang-level {
+    display: inline-block;
+    font-size: 0.85em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--accent);
+    color: white;
+    margin-left: auto;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.lang-skill:hover .lang-level {
+    background: var(--accent-dark);
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .skills-container {
+        padding: 20px 16px;
+        gap: 20px;
+    }
+    
+    .skills-box {
+        padding: 20px 16px;
+    }
+    
+    .skills-box h3 {
+        font-size: 1.4em;
+    }
+    
+    .lang-skill {
+        padding: 8px 12px 8px 12px !important;
+    }
+}
+
+/* Projects section */
+.projects-section {
+    background: linear-gradient(135deg, #263238 70%, #4caf50 100%);
+    color: var(--text);
+    text-align: center;
+    border-radius: var(--border-radius, 16px);
+    box-shadow: 0 6px 32px 0 rgba(76,175,80,0.10), 0 2px 12px #0002;
+    position: relative;
+    z-index: 1;
+    padding: 36px 0 24px 0;
+    overflow: visible;
+}
+body.light-mode .projects-section {
+    background: linear-gradient(135deg, #fff 70%, #e4e7ef 100%);
+    color: #23272f;
+    box-shadow: 0 2px 12px rgba(76,175,80,0.06);
+}
+
+.projects-section.styled-block {
+    padding: 36px 24px 24px 24px;
+    background: linear-gradient(135deg, var(--card-bg) 70%, var(--accent-tertiary) 100%);
+}
+
+body.light-mode .projects-section.styled-block {
+    background: linear-gradient(135deg, var(--card-bg) 70%, var(--accent-tertiary) 100%);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+    padding: 12px 8px;
+}
+
+.project-card {
+    background: rgba(35,39,47,0.95);
+    padding: 0;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.12), 0 2px 8px rgba(76,175,80,0.08);
+    color: var(--text);
+    text-align: center;
+    transition: 
+        transform 0.3s ease-out, 
+        box-shadow 0.3s ease-out, 
+        background 0.5s, 
+        border 0.3s;
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+    z-index: 1;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+body.light-mode .project-card {
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.06), 0 2px 8px rgba(76,175,80,0.05);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.16), 0 4px 12px rgba(76,175,80,0.12);
+    border-color: var(--accent);
+}
+
+.project-card .project-image {
+    height: 180px;
+    width: 100%;
+    margin-bottom: 0;
+    transition: transform 0.4s ease-out;
+    border-radius: 14px 14px 0 0;
+    /* Make sure the image path is correct in HTML */
+    /* If there's a background image, check path here too */
+    object-fit: cover; /* Ensures images maintain their aspect ratio */
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.05);
+}
+
+.project-card h3 {
+    margin: 18px 16px 10px 16px;
+    font-size: 1.4em;
+    color: var(--accent);
+    transition: color 0.3s;
+}
+
+.project-card p {
+    padding: 0 20px 22px 20px;
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: var(--text-light);
+}
+
+.project-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.project-card:hover::after {
+    opacity: 1;
+}
+
+/* Contact section */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 48px;
+    background: linear-gradient(120deg, #263238 60%, #4caf50 100%);
+    border-radius: 22px;
+    box-shadow: 0 8px 36px 0 rgba(76,175,80,0.13), 0 2px 16px #0002;
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+    padding: 48px 0 36px 0;
+    min-height: 340px;
+}
+body.light-mode .flex-container {
+    background: linear-gradient(120deg, #fff 70%, #e4e7ef 100%);
+    box-shadow: 0 2px 16px rgba(76,175,80,0.08);
+}
+
+.flex-container.styled-block {
+    background: linear-gradient(120deg, var(--card-bg) 60%, var(--accent) 100%);
+    box-shadow: 0 8px 36px 0 rgba(56,163,165,0.13), 0 2px 16px #0002;
+    padding: 48px 24px 36px 24px;
+    margin-bottom: 48px;
+}
+
+body.light-mode .flex-container.styled-block {
+    background: linear-gradient(120deg, var(--card-bg) 70%, var(--accent) 100%);
+}
+
+/* Remove old contact decorations */
+.contact-decor,
+.contact-decor-left,
+.contact-decor-right,
+.info-decor,
+.info-decor-top,
+.info-decor-bottom {
+    display: none;
+}
+
+.info-box {
+    background: rgba(35,39,47,0.95);
+    position: relative;
+    overflow: hidden;
+    border: none;
+    border-radius: 18px;
+    background-clip: padding-box;
+    box-shadow: 0 12px 36px rgba(76,175,80,0.13), 0 0 0 2px rgba(76,175,80,0.07);
+    margin: 0 12px;
+    flex: 1 1 340px;
+    min-width: 260px;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    z-index: 2;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background 0.4s;
+}
+
+body.light-mode .info-box {
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 12px 36px rgba(76,175,80,0.08), 0 0 0 2px rgba(76,175,80,0.04);
+}
+
+.info-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 48px rgba(76,175,80,0.18), 0 0 0 2px var(--accent);
+}
+
+.info-box-inner {
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.info-box h3 {
+    color: var(--accent);
+    font-size: 1.6em;
+    margin-bottom: 16px;
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info-box h3::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    transition: width 0.3s;
+}
+
+.info-box p {
+    margin-bottom: 28px;
+    font-size: 1.02em;
+    line-height: 1.6;
+    padding: 0 12px;
+    flex-grow: 1;
+}
+
+.info-button {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    letter-spacing: 0.02em;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 16px rgba(56,163,165,0.2);
+    margin-top: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s;
+}
+
+.info-button:hover {
+    background: var(--accent-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(76,175,80,0.3);
+    color: #fff;
+}
+
+.info-button:hover::before {
+    left: 100%;
+}
+
+/* Footer */
+.footer {
+    flex-shrink: 0;
+    background: linear-gradient(90deg, var(--card-bg) 80%, var(--accent) 100%);
+    padding: 40px 16px 32px 16px;
+    text-align: center;
+    border-top: 2px solid var(--accent);
+    color: var(--text-light);
+    box-shadow: 0 -2px 8px rgba(56,163,165,0.04);
+    margin-top: 48px;
+    margin-bottom: 0;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+    min-height: 120px;
+    letter-spacing: 0.01em;
+    transition: background 0.5s, color 0.5s, box-shadow 0.3s;
+}
+body.light-mode .footer {
+    background: linear-gradient(90deg, #fff 80%, #e4e7ef 100%);
+    color: #23272f;
+    box-shadow: 0 -2px 12px rgba(76,175,80,0.06);
+}
+
+.footer.styled-block {
+    margin-top: 48px;
+    margin-bottom: 0;
+    box-shadow: 0 -2px 8px rgba(56,163,165,0.04);
+    background: linear-gradient(90deg, var(--card-bg) 80%, var(--accent) 100%);
+    padding: 40px 16px 32px 16px;
+}
+
+body.light-mode .footer.styled-block {
+    background: linear-gradient(90deg, var(--card-bg) 80%, var(--accent) 100%);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 18px;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    z-index: 1;
+}
+.footer-links li a {
+    font-size: 16px;
+    color: var(--accent-dark);
+    text-decoration: none;
+    transition: color var(--transition), background var(--transition), box-shadow 0.2s;
+    padding: 8px 18px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.04);
+    font-weight: 600;
+    box-shadow: 0 1px 4px #4caf5010;
+    letter-spacing: 0.03em;
+    border: 1.5px solid transparent;
+    display: inline-block;
+}
+.footer-links li a:hover, .footer-links li a:focus {
+    color: #fff;
+    background: var(--accent);
+    box-shadow: 0 2px 12px #4caf5020;
+    border: 1.5px solid var(--accent-dark);
+    outline: none;
+}

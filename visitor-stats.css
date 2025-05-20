@@ -1,0 +1,78 @@
+/* Visitor statistics container styles */
+.visitor-stats-container {
+    background: rgba(35,39,47,0.7);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-top: 16px;
+    font-size: 0.9em;
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(56,163,165,0.1);
+    transition: background 0.3s, border-color 0.3s;
+    /* Add consistent height to prevent layout shifts */
+    min-height: 40px;
+    box-sizing: border-box;
+}
+
+.visitor-stats-container:hover {
+    background: rgba(56,163,165,0.1);
+    border-color: var(--accent);
+}
+
+/* Light mode styles */
+body.light-mode .visitor-stats-container {
+    background: rgba(255,255,255,0.7);
+    border-color: rgba(14,116,144,0.1);
+}
+
+body.light-mode .visitor-stats-container:hover {
+    background: rgba(14,116,144,0.05);
+    border-color: var(--accent);
+}
+
+/* Stats tooltip */
+.visitor-stats-tooltip {
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+    cursor: help;
+    /* Prevent tooltip from causing layout shifts */
+    vertical-align: middle;
+}
+
+.visitor-stats-tooltip .tooltip-text {
+    visibility: hidden;
+    width: 280px;
+    background-color: var(--card-bg);
+    color: var(--text);
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -140px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    border: 1px solid var(--accent);
+    font-size: 0.9em;
+    line-height: 1.4;
+    /* Use transform for positioning to avoid layout shifts */
+    transform: translateY(10px);
+    pointer-events: none;
+}
+
+.visitor-stats-tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.light-mode .visitor-stats-tooltip .tooltip-text {
+    background-color: var(--card-bg);
+    color: var(--text);
+}

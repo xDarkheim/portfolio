@@ -1,0 +1,23 @@
+# Copyright (c) 2024 Dmytro Hovenko
+# All rights reserved.
+
+# Отключение просмотра содержимого папок
+Options -Indexes
+
+# Настройка кэширования файлов для ускорения загрузки
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType image/jpg "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/gif "access plus 30 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType application/x-javascript "access plus 7 days"
+</IfModule>
+
+# Защита чувствительных файлов от доступа
+<FilesMatch "\.(htaccess|htpasswd|env|ini|log)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>

@@ -1,0 +1,64 @@
+/* 
+Copyright (c) 2024 Dmytro Hovenko
+All rights reserved.
+*/
+
+/* Import other CSS files */
+@import url('base.css');
+@import url('themes.css');
+@import url('layout.css');
+@import url('components.css');
+@import url('sections.css');
+@import url('utilities.css');
+
+/* Skills Section Styles */
+.skills-container {
+    padding: 2rem;
+}
+
+.skills-container .section-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 2.2rem;
+    position: relative;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.skills-container .section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.skill-level-fill {
+    height: 100%;
+    width: var(--level);
+    background: linear-gradient(to right, var(--accent), var(--accent-light));
+    border-radius: 4px;
+    position: relative;
+    animation: skillFillAnimation 1.5s ease-out forwards;
+}
+
+@keyframes skillFillAnimation {
+    from { width: 0; }
+    to { width: var(--level); }
+}

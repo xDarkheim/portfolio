@@ -1,0 +1,201 @@
+/* Decorative orbs/bubbles for all sections */
+.decorative-orb {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.3;
+    mix-blend-mode: screen;
+    filter: blur(40px);
+    /* Use transform: translate3d for better GPU acceleration */
+    transform: translate3d(0, 0, 0);
+    will-change: transform, opacity;
+    transition: opacity 0.3s ease;
+}
+
+/* Add a class to enable animations only when not scrolling */
+.enable-animations .decorative-orb {
+    animation: float 12s infinite alternate ease-in-out;
+}
+
+/* Disable animations when scrolling or on mobile to improve performance */
+.is-scrolling .decorative-orb {
+    animation: none;
+}
+
+/* Size variations */
+.orb-sm { width: 120px; height: 120px; }
+.orb-md { width: 180px; height: 180px; }
+.orb-lg { width: 280px; height: 280px; }
+.orb-xl { width: 380px; height: 380px; }
+
+/* Color variations - using CSS variables for better theme integration */
+.orb-primary {
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+}
+
+.orb-secondary {
+    background: radial-gradient(circle, var(--accent-secondary) 0%, transparent 70%);
+}
+
+.orb-tertiary {
+    background: radial-gradient(circle, var(--accent-tertiary) 0%, transparent 70%);
+}
+
+.orb-quaternary {
+    background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+}
+
+.orb-interaction {
+    background: radial-gradient(circle, var(--accent) 0%, var(--accent-secondary) 50%, transparent 75%);
+}
+
+/* Position modifiers */
+.orb-top-left {
+    top: -100px;
+    left: -70px;
+    animation-delay: 0s;
+}
+
+.orb-top-right {
+    top: -120px;
+    right: -80px;
+    animation-delay: 0.5s;
+}
+
+.orb-bottom-left {
+    bottom: -100px;
+    left: -60px;
+    animation-delay: 1s;
+}
+
+.orb-bottom-right {
+    bottom: -120px;
+    right: -80px;
+    animation-delay: 1.5s;
+}
+
+.orb-top-center {
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 2s;
+}
+
+.orb-bottom-center {
+    bottom: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 2.5s;
+}
+
+.orb-left-center {
+    left: -120px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation-delay: 3s;
+}
+
+.orb-right-center {
+    right: -120px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation-delay: 3.5s;
+}
+
+/* Optimized animation for better performance */
+@keyframes float {
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(10px, -10px, 0);
+    }
+}
+
+/* Section hover effects */
+.styled-block:hover .decorative-orb {
+    opacity: 0.4;
+}
+
+/* Different opacity for light mode */
+body.light-mode .decorative-orb {
+    opacity: 0.25;
+}
+
+/* Reduce animations and size on mobile devices */
+@media (max-width: 900px) {
+    .decorative-orb {
+        opacity: 0.2;
+        filter: blur(30px);
+        animation-duration: 18s;
+    }
+    
+    .orb-sm { width: 80px; height: 80px; }
+    .orb-md { width: 120px; height: 120px; }
+    .orb-lg { width: 180px; height: 180px; }
+    .orb-xl { width: 240px; height: 240px; }
+    
+    /* Adjust positions to be less extreme */
+    .orb-top-left, .orb-bottom-left {
+        left: -40px;
+    }
+    
+    .orb-top-right, .orb-bottom-right {
+        right: -40px;
+    }
+    
+    .orb-top-left, .orb-top-right, .orb-top-center {
+        top: -60px;
+    }
+    
+    .orb-bottom-left, .orb-bottom-right, .orb-bottom-center {
+        bottom: -60px;
+    }
+    
+    .orb-left-center {
+        left: -60px;
+    }
+    
+    .orb-right-center {
+        right: -60px;
+    }
+}
+
+@media (max-width: 600px) {
+    .decorative-orb {
+        opacity: 0.15;
+        filter: blur(20px);
+        animation-duration: 24s;
+    }
+    
+    .orb-sm { width: 40px; height: 40px; }
+    .orb-md { width: 60px; height: 60px; }
+    .orb-lg { width: 90px; height: 90px; }
+    .orb-xl { width: 120px; height: 120px; }
+    
+    /* Further adjust positions */
+    .orb-top-left, .orb-bottom-left {
+        left: -20px;
+    }
+    
+    .orb-top-right, .orb-bottom-right {
+        right: -20px;
+    }
+    
+    .orb-top-left, .orb-top-right, .orb-top-center {
+        top: -30px;
+    }
+    
+    .orb-bottom-left, .orb-bottom-right, .orb-bottom-center {
+        bottom: -30px;
+    }
+    
+    .orb-left-center {
+        left: -30px;
+    }
+    
+    .orb-right-center {
+        right: -30px;
+    }
+}
